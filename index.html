@@ -27,6 +27,7 @@
             padding: 30px 0;
             text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
 
         header h1 {
@@ -34,6 +35,27 @@
             font-size: 3rem;
             letter-spacing: 1px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            position: relative;
+            z-index: 1;
+        }
+
+        .name-animated {
+            color: transparent;
+            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 5s infinite linear;
+            background-size: 400% 100%;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 100% 50%;
+            }
         }
 
         header p {
@@ -51,6 +73,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            border-bottom: 2px solid #555;
         }
 
         nav a {
@@ -58,37 +81,39 @@
             text-decoration: none;
             padding: 15px 25px;
             display: block;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         nav a:hover {
             background: #555;
+            color: #f8f8f8;
         }
 
         section {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 30px;
+            max-width: 950px;
+            margin: 60px auto;
+            padding: 40px;
             background: #fff;
             border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-            border: 1px solid #ddd;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border: 1px solid #eee;
         }
 
         body.dark-mode section {
             background: #222;
             border-color: #444;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
 
         section h2 {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             color: #333;
-            border-bottom: 3px solid #007bff;
-            padding-bottom: 10px;
+            border-bottom: 4px solid #007bff;
+            padding-bottom: 12px;
             display: inline-block;
             line-height: 1;
+            font-size: 2.2rem;
         }
 
         body.dark-mode section h2 {
@@ -98,15 +123,15 @@
 
         .projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
 
         .card {
-            padding: 25px;
+            padding: 30px;
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 1px solid #eee;
         }
@@ -115,17 +140,19 @@
             background: #333;
             color: #fff;
             border-color: #555;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
         .card h3 {
             margin-top: 0;
             color: #007bff;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
         }
 
         body.dark-mode .card h3 {
@@ -134,7 +161,8 @@
 
         .card p {
             color: #555;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            line-height: 1.7;
         }
 
         body.dark-mode .card p {
@@ -145,76 +173,85 @@
             background: #007bff;
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 14px 28px;
             cursor: pointer;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         button:hover {
             background: #0056b3;
-            transform: scale(1.05);
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             background: #333;
             color: #fff;
-            margin-top: 60px;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 70px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            border-top: 2px solid #555;
         }
 
         footer p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: #ddd;
         }
 
         /* Dark Mode Toggle */
         .dark-mode-toggle {
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #666;
+            top: 25px;
+            right: 25px;
+            background: #555;
             color: #fff;
             border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
+            padding: 12px 18px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 1rem;
             z-index: 101;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .dark-mode-toggle:hover {
-            background: #444;
+            background: #333;
+            transform: scale(1.05);
         }
 
         /* Scroll to Top Button */
         .scroll-to-top {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(0, 123, 255, 0.7);
+            bottom: 30px;
+            right: 30px;
+            background: rgba(0, 123, 255, 0.8);
             color: white;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             text-align: center;
-            line-height: 40px;
-            font-size: 1.2rem;
+            line-height: 45px;
+            font-size: 1.3rem;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.2s ease;
         }
 
         .scroll-to-top.show {
             opacity: 1;
             visibility: visible;
+            transform: scale(1);
+        }
+
+        .scroll-to-top:hover {
+            transform: scale(1.1);
+            background: #0056b3;
         }
     </style>
 </head>
@@ -223,7 +260,7 @@
     <button class="dark-mode-toggle" onclick="toggleDarkMode()">Dark Mode</button>
 
     <header>
-        <h1>Nishant Singh</h1>
+        <h1><span class="name-animated">Nishant Singh</span></h1>
         <p>Web Developer | Designer | Programmer</p>
     </header>
 
@@ -235,7 +272,8 @@
 
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello! I am Nishant Singh, a passionate web developer based in 📍 Kanpur, Uttar Pradesh, who loves building modern and responsive websites. I enjoy learning new technologies and applying them to solve real-world problems. My focus is on creating user-friendly and efficient web applications. I am particularly interested in front-end frameworks like React and exploring the possibilities of full-stack development.</p>
+        <p>Hello! I am Nishant Singh, a passionate web developer based in the vibrant city of Kanpur, Uttar Pradesh, India. I have a deep enthusiasm for crafting modern, user-friendly, and responsive websites and web applications. My journey in web development is driven by a constant desire to learn and implement new technologies to solve real-world challenges. I specialize in creating intuitive and efficient digital experiences, with a keen interest in front-end frameworks like React and exploring the full spectrum of full-stack development.</p>
+        <p>My skills encompass HTML, CSS (including preprocessors like Sass), JavaScript, and various front-end libraries and frameworks. I am also continuously expanding my knowledge in back-end technologies and database management to become a more versatile developer.</p>
     </section>
 
     <section id="projects">
@@ -243,22 +281,22 @@
         <div class="projects">
             <div class="card">
                 <h3>Portfolio Website</h3>
-                <p>A personal portfolio website designed to showcase my skills, projects, and experience in web development and design. Built with HTML, CSS, and JavaScript, focusing on a clean and responsive layout.</p>
+                <p>A meticulously designed personal portfolio website intended to effectively showcase my diverse skills, completed projects, and relevant experience in the fields of web development and design. Built using a foundation of HTML, CSS, and JavaScript, the primary focus was on achieving a clean, intuitive, and fully responsive layout that adapts seamlessly to various screen sizes.</p>
                 <button onclick="showAlert('Portfolio Website')">View More</button>
             </div>
             <div class="card">
                 <h3>Todo App</h3>
-                <p>A simple yet effective todo application to help users manage their daily tasks efficiently. Features include adding, deleting, and marking tasks as complete. Developed using JavaScript with local storage for persistence.</p>
+                <p>A streamlined and efficient todo application developed to assist users in the seamless management of their daily tasks. Key features include the ability to add new tasks, delete existing ones, and mark tasks as complete, providing a simple yet powerful tool for personal organization. This application was built using JavaScript, leveraging local storage to ensure persistent data storage.</p>
                 <button onclick="showAlert('Todo App')">View More</button>
             </div>
             <div class="card">
-                <h3>E-commerce Store</h3>
-                <p>A mock online store concept demonstrating fundamental e-commerce functionalities such as product listings, shopping cart, and basic product management features. Built with HTML, CSS, and JavaScript to simulate a real shopping experience.</p>
+                <h3>E-commerce Store Concept</h3>
+                <p>A conceptual online store project designed to demonstrate fundamental e-commerce functionalities and user interactions. This mock store includes features such as product listings with detailed information, a functional shopping cart system, and basic product management capabilities. Developed using HTML, CSS, and JavaScript to simulate a realistic online shopping experience.</p>
                 <button onclick="showAlert('E-commerce Store')">View More</button>
             </div>
             <div class="card">
-                <h3>Weather Application</h3>
-                <p>A web application that fetches and displays real-time weather information for a given city using a public weather API. Includes details like temperature, humidity, and wind speed.</p>
+                <h3>Real-Time Weather Application</h3>
+                <p>A dynamic web application engineered to fetch and display current weather information for a specified city. By integrating with a public weather API, the application provides users with essential details such as temperature, humidity levels, wind speed, and weather conditions, offering a quick and easy way to stay informed about the local climate.</p>
                 <button onclick="showAlert('Weather Application')">View More</button>
             </div>
         </div>
@@ -266,10 +304,11 @@
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>Feel free to reach out! I am open to new opportunities and collaborations.</p>
+        <p>I am eagerly seeking new opportunities and collaborations. Please feel free to reach out!</p>
         <p>Email: <a href="mailto:nishant@example.com">nishant@example.com</a></p>
-        <p>LinkedIn: <a href="#" target="_blank">linkedin.com/in/nishant</a></p>
-        <p>GitHub: <a href="#" target="_blank">github.com/nishantdev</a></p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/nishant" target="_blank">linkedin.com/in/nishant</a></p>
+        <p>GitHub: <a href="https://github.com/nishantdev" target="_blank">github.com/nishantdev</a></p>
+        <p>Based in: 📍 Kanpur, Uttar Pradesh, India</p>
     </section>
 
     <footer>
@@ -288,7 +327,9 @@
         }
 
         // Scroll to Top functionality
-        window.onscroll = function() {scrollFunction()};
+        window.onscroll = function() {
+            scrollFunction()
+        };
 
         function scrollFunction() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
